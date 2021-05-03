@@ -1,0 +1,14 @@
+﻿@page "/zoomimage"
+@inject IJSRuntime JSRuntime;
+
+<h3>Open Seadragon Example</h3>
+<br />
+<div id="openseadragon1" style="width: 800px; height: 600px;"></div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender) {
+            await JSRuntime.InvokeAsync<object>("InitOpenSeadragon", "#openseadragon1");
+        }
+    }
+}
